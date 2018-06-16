@@ -1,6 +1,6 @@
 namespace KatlaSport.DataAccess.Migrations
 {
-    //using System;
+    // using System;
     using System.Data.Entity.Migrations;
 
     /// <summary>
