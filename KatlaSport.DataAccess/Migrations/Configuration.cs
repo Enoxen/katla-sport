@@ -30,9 +30,14 @@ namespace KatlaSport.DataAccess.Migrations
         public Configuration()
         {
             ContextKey = "ApplicationData";
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             AutomaticMigrationDataLossAllowed = false;
             SetSqlGenerator("System.Data.SqlClient", new CustomSqlServerMigrationSqlGenerator());
+
+            // if (System.Diagnostics.Debugger.IsAttached == false)
+            // {
+            //    System.Diagnostics.Debugger.Launch();
+            // }
         }
 
         protected override void Seed(ApplicationDbContext context)
@@ -87,6 +92,9 @@ namespace KatlaSport.DataAccess.Migrations
                     Name = "Kyak Men Shoes",
                     Code = "KYME1",
                     CategoryId = 1,
+                    Price = default(decimal),
+                    Description = string.Empty,
+                    ManufacturerCode = string.Empty,
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
@@ -101,7 +109,10 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    Price = default(decimal),
+                    Description = string.Empty,
+                    ManufacturerCode = string.Empty
                 },
                 new CatalogueProduct
                 {
@@ -112,7 +123,10 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    Price = default(decimal),
+                    Description = string.Empty,
+                    ManufacturerCode = string.Empty
                 },
                 new CatalogueProduct
                 {
@@ -123,7 +137,10 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    Price = default(decimal),
+                    Description = string.Empty,
+                    ManufacturerCode = string.Empty
                 });
 
             context.StoreHives.AddOrUpdate(
