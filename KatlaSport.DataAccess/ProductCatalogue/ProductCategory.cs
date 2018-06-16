@@ -10,6 +10,11 @@ namespace KatlaSport.DataAccess.ProductCatalogue
     public class ProductCategory
     {
         /// <summary>
+        /// Gets or sets a product category description.
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
         /// Gets or sets a product category ID.
         /// </summary>
         public int Id { get; set; }
