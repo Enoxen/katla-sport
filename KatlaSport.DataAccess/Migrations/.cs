@@ -1,11 +1,12 @@
-using System.Data.Entity.Migrations;
-
 namespace KatlaSport.DataAccess.Migrations
 {
+    // using System;
+    using System.Data.Entity.Migrations;
+
     /// <summary>
-    /// AddCategoryDescription migration.
+    /// hm
     /// </summary>
-    public partial class AddCategoryDescription : DbMigration
+    public partial class AddProductDescriptionManCodePrice : DbMigration
     {
         public override void Up()
         {
