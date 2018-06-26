@@ -9,6 +9,21 @@ namespace KatlaSport.Services.HiveManagement
     public interface IHiveSectionService
     {
         /// <summary>
+        /// Deletes existing hive section.
+        /// </summary>
+        /// <param name="sectionId">ID of a section..</param>
+        /// <returns>Task wit hive section.</returns>
+        Task DeleteHiveSectionAsync(int sectionId);
+
+        /// <summary>
+        /// Updates existing hive section.
+        /// </summary>
+        /// <param name="sectionId">ID of a section.</param>
+        /// <param name="updateRequest">Object with data.</param>
+        /// <returns>Task with give Section.</returns>
+        Task<HiveSection> UpdateHiveSectionAsync(int sectionId, UpdateHiveSectionRequest updateRequest);
+
+        /// <summary>
         /// Creates a hive section.
         /// </summary>
         /// <param name="createRequest">Update object with data.</param>

@@ -93,5 +93,48 @@ namespace KatlaSport.Services.HiveManagement
 
             return Mapper.Map<HiveSection>(dbHiveSection);
         }
+
+        public async Task DeleteHiveSectionAsync(int sectionId)
+        {
+            var dbHiveSections = await _context.Sections.Where(p => p.Id == sectionId).ToArrayAsync();
+            if (dbHiveSections.Length == 0)
+            {
+                throw new RequestedResourceNotFoundException();
+            }
+
+            var dbSection = dbHiveSections[0];
+            if (dbSection.IsDeleted == false)
+            {
+                throw new RequestedResourceHasConflictException();
+            }
+
+            _context.Sections.Remove(dbSection);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<HiveSection> UpdateHiveSectionAsync(int sectionId, UpdateHiveSectionRequest updateRequest)
+        {
+            var dbHiveSections = await _context.Sections.Where(p => p.Code == updateRequest.Code && p.Id != sectionId).ToArrayAsync();
+            if (dbHiveSections.Length > 0)
+            {
+                throw new RequestedResourceHasConflictException("code");
+            }
+
+            dbHiveSections = await _context.Sections.Where(p => p.Id == sectionId).ToArrayAsync();
+            if (dbHiveSections.Length == 0)
+            {
+                throw new RequestedResourceNotFoundException();
+            }
+
+            var dbSection = dbHiveSections[0];
+
+            Mapper.Map(updateRequest, dbSection);
+
+            dbSection.LastUpdatedBy = _userContext.UserId;
+
+            await _context.SaveChangesAsync();
+
+            return Mapper.Map<HiveSection>(dbSection);
+        }
     }
 }
