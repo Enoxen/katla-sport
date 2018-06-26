@@ -9,6 +9,13 @@ namespace KatlaSport.Services.HiveManagement
     public interface IHiveSectionService
     {
         /// <summary>
+        /// Creates a hive section.
+        /// </summary>
+        /// <param name="createRequest">Update object with data.</param>
+        /// <returns>Task with hive section.</returns>
+        Task<HiveSection> CreateHiveSectionAsync(UpdateHiveSectionRequest createRequest);
+
+        /// <summary>
         /// Gets a list of hive sections.
         /// </summary>
         /// <returns>A <see cref="Task{List{HiveSectionListItem}}"/>.</returns>

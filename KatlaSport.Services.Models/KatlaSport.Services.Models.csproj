@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="**\*.cs" Exclude="obj\Debug\*.cs;obj\Release\*.cs" />
+    
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
